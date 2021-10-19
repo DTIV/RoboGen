@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Cabin+Sketch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Barlow', sans-serif;
+}
+
+.hide{
+  display: none!important;
+}
+
+.gallery{
+  width: 80%;
+  margin: auto;
+}
+.mainbar{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  overflow-wrap: break-word;
+  grid-gap: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.mainnav{
+  /* border: 2px solid black; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  padding: 0 2rem;
+}
+.logo-wrap{
+  text-align: left;
+  margin-left: 2rem;
+}
+.connect-wrap{
+  font-family: 'Major Mono Display', monospace;
+  text-align: right;
+  margin-right: 2rem;
+  display: block;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.logo{
+  font-size: 5rem;
+  font-weight: 900;
+}
+
+.connect-btn, .btn{
+  background-color: inherit;
+  font-family: 'Major Mono Display', monospace;
+  cursor: pointer;
+  font-weight: 900;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.btn{
+  width: 100%;
+}
+.net{
+  display: flex;
+  justify-content: right;
+  margin-bottom: 0.2rem;
+}
+.circle, .angry-circle{
+  display: inline-block;
+  border: black 1px solid;
+  margin-left: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.circle{
+  background-color: greenyellow;
+}
+.angry-circle{
+  background-color: red;
+}
+.main-header{
+  text-align: center;
+  font-family: 'Major Mono Display', monospace;
+}
+
+.title{
+  font-family: 'Major Mono Display', monospace;
+  text-align: center;
+  margin: 2rem;
+  font-size: 2rem;
+}
+.nft-wrap, .owned-wrap{
+  /* border: 2px orange solid; */
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 1rem;
+}
+
+.image{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.nft-card{
+  /* border: 2px green solid; */
+  width: 100%;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.token-id-header, .nft-owner{
+  text-align: center;
+  word-wrap: break-word;
+  background: rgb(216, 216, 216);
+  padding: 0.5rem;
+}
+
+img{
+  max-width: 100%;
+}
+
+.mint-wrap{
+  display: flex;
+  text-align: center;
+  height: 60vh;
+  align-content: center;
+}
+
+.mint-form{
+  display: grid;
+  width: 70%;
+  margin: auto;
+  grid-gap: 0.5rem;
+}
+
+.mint-input{
+  background-color: inherit;
+  /* font-family: 'Major Mono Display', monospace; */
+  cursor: pointer;
+  font-weight: 500;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: none;
+  width: 100%;
+  text-align: center;
+}
