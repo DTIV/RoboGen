@@ -151,3 +151,8 @@ img{
   width: 100%;
   text-align: center;
 }
+
+#canvas{
+  visibility: hidden;
+  max-height: 0;
+}

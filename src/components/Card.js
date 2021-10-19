@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Card = (props) => {
-    console.log()
     return (
         <div key={props.tokenID} className="nft-card">
             <div className="nft-item">
