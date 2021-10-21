@@ -62,6 +62,9 @@ body{
   padding: 1rem;
 }
 
+.connect-btn, .btn:hover{
+  background-color: rgb(223, 223, 223);
+}
 .btn{
   width: 100%;
 }
@@ -155,4 +158,10 @@ img{
 #canvas{
   visibility: hidden;
   max-height: 0;
+  width: 100%;
+}
+
+.buy-wrap{
+  text-align: center;
+  margin: 4rem 0;
 }

@@ -3,12 +3,17 @@ import { useState } from "react"
 import Gallery from "./components/Gallery";
 import Header from "./components/Header";
 import { checkWallet,
-        connectWallet, 
-        loadContract, 
-        loadGallery } from './Functions'
+      connectWallet, 
+      loadContract, 
+      loadGallery,
+      robotHead,
+      robotEyes,
+      robotBrows,
+      robotMouth} from './Functions'
 import Owned from "./components/Owned";
 import Mint from "./components/Mint";
 import Buy from "./components/Buy";
+import { buildQueries } from "@testing-library/dom";
 //import BuildFly from "./components/BuildFly";
 
 function App() {
@@ -35,13 +40,9 @@ function App() {
         if(ContractObject){
           ContractObject.getState().then(function(stateData){
             ContractState = stateData;
-            
             localStorage.setItem("ContractState", JSON.stringify(ContractState))  
             const tokenOwners = ContractState.token_owners;
             const tokenURI = ContractState.token_uris;
-
-            // NEW END
-
             loadGallery();
             setOwner(tokenOwners)
             setURI(tokenURI)
@@ -49,6 +50,53 @@ function App() {
           });  
         }
       }
+
+      function buildrobot(){
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d');
+        // HEAD //
+        ctx.drawImage(nftHead, (500 - 500)/2, 0)
+        // EYES //
+        ctx.drawImage(nftEyes, (500 - 500)/2, 0)
+        // BROWS //
+        ctx.drawImage(nftBrows, (500 - 500)/2, 0)
+        // MOUTH //
+        ctx.drawImage(nftMouth, (500 - 500)/2, 0)
+      } 
+      
+      /////////  HEAD    //////////
+      const nftHead = new Image();
+      var rando = Math.floor(Math.random()*4)+1
+      nftHead.src = robotHead(rando)
+      nftHead.onload = function(){
+        buildrobot();
+      }
+
+      /////////  EYES    //////////
+      const nftEyes = new Image();
+      var rando = Math.floor(Math.random()*3)+1
+      nftEyes.src = robotEyes(rando)
+      nftEyes.onload = function(){
+        buildrobot();
+      }
+
+      /////////  BROWS    ///////////
+
+      const nftBrows = new Image();
+      var rando = Math.floor(Math.random()*2)+1
+      nftBrows.src = robotBrows(rando)
+      nftBrows.onload = function(){
+        buildrobot();
+      }
+
+      /////////  MOUTH    //////////
+      const nftMouth = new Image();
+      var rando = Math.floor(Math.random()*2)+1
+      nftMouth.src = robotMouth(rando)
+      nftMouth.onload = function(){
+        buildrobot();
+      }
+
     }catch{
       console.log("INIT ERROR")
     }
@@ -66,8 +114,6 @@ function App() {
               ContractAddress = contractAddress;
               const tokenOwners = ContractState.token_owners;
               const tokenURI = ContractState.token_uris;
-
-              // NEW
               const tokenMds = ContractState.token_mds;
               setMD(tokenMds)
               loadGallery(false);
@@ -81,6 +127,8 @@ function App() {
       }
       return ContractObject
     }
+    
+
   }
   
 
