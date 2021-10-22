@@ -23,14 +23,17 @@ const Buy = (props) => {
     }
 
     var flag = false;
-    for(const i in ContractState.minters){
-        if(props.currWallet){
-            if(i.toUpperCase() === props.currWallet.toUpperCase()){
-                flag = true;
+    if(ContractState){
+        for(const i in ContractState.minters){
+            if(props.currWallet){
+                if(i.toUpperCase() === props.currWallet.toUpperCase()){
+                    flag = true;
+                }
             }
+            
         }
-        
     }
+    
 
     if(!flag){
         return(
