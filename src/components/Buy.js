@@ -60,7 +60,7 @@ const Buy = (props) => {
                     });
                 }}>
 
-                    <div id="submit-form">
+                    <div id="submit-form" className="enable-gen enable">
                         <button className="btn" type="submit">Enable</button>
                     </div>
                 </form>

@@ -55,19 +55,20 @@ function App() {
 
       function buildrobot(){
         var canvas = document.getElementById('canvas')
-        var ctx = canvas.getContext('2d');
-        // HEAD //
-        ctx.drawImage(nftHead, (500 - 500)/2, 0)
-        // EYES //
-        ctx.drawImage(nftEyes, (500 - 500)/2, 0)
-        // BROWS //
-        ctx.drawImage(nftBrows, (500 - 500)/2, 0)
-        // MOUTH //
-        ctx.drawImage(nftMouth, (500 - 500)/2, 30)
-        // MOUTH //
-        ctx.drawImage(nftNose, (500 - 500)/2, 0)
+        if(canvas){
+          var ctx = canvas.getContext('2d');
+          // HEAD //
+          ctx.drawImage(nftHead, (500 - 500)/2, 0)
+          // EYES //
+          ctx.drawImage(nftEyes, (500 - 500)/2, 0)
+          // BROWS //
+          ctx.drawImage(nftBrows, (500 - 500)/2, 0)
+          // MOUTH //
+          ctx.drawImage(nftMouth, (500 - 500)/2, 30)
+          // MOUTH //
+          ctx.drawImage(nftNose, (500 - 500)/2, 0)
+        } 
       } 
-      
       /////////  HEAD    //////////
       const nftHead = new Image();
       var rando = Math.floor(Math.random()*10000)+1
@@ -75,7 +76,6 @@ function App() {
       nftHead.onload = function(){
         buildrobot();
       }
-
       /////////  EYES    //////////
       const nftEyes = new Image();
       var rando = Math.floor(Math.random()*10000)+1
@@ -83,17 +83,13 @@ function App() {
       nftEyes.onload = function(){
         buildrobot();
       }
-
       /////////  BROWS    ///////////
-
       const nftBrows = new Image();
       var rando = Math.floor(Math.random()*2)+1
       nftBrows.src = robotBrows(rando)
       nftBrows.onload = function(){
         buildrobot();
       }
-
-      
       /////////  MOUTH    //////////
       const nftMouth = new Image();
       var rando = Math.floor(Math.random()*2)+1
@@ -101,7 +97,6 @@ function App() {
       nftMouth.onload = function(){
         buildrobot();
       }
-
       //NOSE
       const nftNose = new Image();
       var rando = Math.floor(Math.random()*2)+1
@@ -109,7 +104,6 @@ function App() {
       nftNose.onload = function(){
         buildrobot();
       }
-
     }catch{
       console.log("INIT ERROR")
     }

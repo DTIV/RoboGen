@@ -9,3 +9,5 @@ This react application generates different Robot Avatar NFTs with rare items. at
 This application can also be used as a NFT wallet for different contracts.
 
 See /src for getting started with create-react-app
+
+![name](/shot1.png)

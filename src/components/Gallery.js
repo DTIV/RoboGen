@@ -4,7 +4,7 @@ import Card from './Card'
 const Gallery = (props) => {
     if(!props.gallery){
         return(
-            <div>
+            <div className="loading">
                 Loading...
             </div>
         )
