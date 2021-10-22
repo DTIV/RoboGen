@@ -71,7 +71,6 @@ function App() {
       /////////  HEAD    //////////
       const nftHead = new Image();
       var rando = Math.floor(Math.random()*10000)+1
-      console.log(rando)
       nftHead.src = robotHead(rando)
       nftHead.onload = function(){
         buildrobot();
@@ -79,7 +78,7 @@ function App() {
 
       /////////  EYES    //////////
       const nftEyes = new Image();
-      var rando = Math.floor(Math.random()*3)+1
+      var rando = Math.floor(Math.random()*10000)+1
       nftEyes.src = robotEyes(rando)
       nftEyes.onload = function(){
         buildrobot();

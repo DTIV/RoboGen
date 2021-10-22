@@ -37,7 +37,7 @@ export async function connectWallet(){
             return false;
         }
     }catch{
-        console.log("ERROR")
+        console.log("ERROR ln40")
     }
 }
 
@@ -94,7 +94,6 @@ export function robotHead(num){
     var color7 = Math.floor(Math.random()*200)+1;
     var color8 = Math.floor(Math.random()*200)+1;
     var color9 = Math.floor(Math.random()*200)+1;
-    console.log(num)
     if(num > 1000){
         
         num = Math.floor(Math.random()*4)+1
@@ -269,6 +268,7 @@ export function robotBrows(num){
 }
 ///////////////////   EYES    ///////////////////
 export function robotEyes(num){
+    
     var color1 = Math.floor(Math.random()*200)+1;
     var color2 = Math.floor(Math.random()*200)+1;
     var color3 = Math.floor(Math.random()*200)+1;
@@ -279,6 +279,7 @@ export function robotEyes(num){
     var color8 = Math.floor(Math.random()*200)+1;
     var color9 = Math.floor(Math.random()*200)+1;
     if(num > 4000){
+        num = Math.floor(Math.random()*3)+1
         if(num === 1){
             return `data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">

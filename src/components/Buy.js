@@ -106,7 +106,6 @@ const Buy = (props) => {
                     })
                     .then(function(a){
                     console.log("RESPONSE",a);
-                    toggle("main-robo")
                     });
                 }
             }}>
