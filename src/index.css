@@ -31,7 +31,7 @@ body{
 .mainnav{
   /* border: 2px solid black; */
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
   padding: 0 2rem;
 }
@@ -164,4 +164,18 @@ img{
 .buy-wrap{
   text-align: center;
   margin: 4rem 0;
+}
+
+
+.enable-gen{
+  width: 50%;
+  margin: auto;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .nft-wrap, .owned-wrap{
+    grid-template-columns: 1fr;
+  }
 }

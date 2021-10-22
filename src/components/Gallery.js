@@ -11,7 +11,7 @@ const Gallery = (props) => {
     }else{
         return(
             <section id="gallery-main">
-                <div>ALL</div>
+                <div className="title">ALL</div>
                 <div className="nft-wrap">
                     {Object.keys(props.gallery).map(key => (
                         <Card key={key} gallery={props.gallery} tokenID={key} uris={props.uris}/>

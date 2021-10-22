@@ -43,10 +43,7 @@ const Nav = (props) => {
                 <button onClick={showOwned} className="btn">MyNfts</button>
             </div>
             <div>
-                <button onClick={showMint} className="btn">Mint</button>
-            </div>
-            <div>
-                <button onClick={props.loadContract} className="btn">Load New NFT</button>
+                <button onClick={props.loadContract} className="btn">Load New Contract</button>
             </div>    
         </nav>
     )

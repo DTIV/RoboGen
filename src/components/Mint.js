@@ -8,8 +8,6 @@ const Mint = (props) => {
     const ContractObject = loadContract(props.address);
     const ContractState = props.state;
     const next_num = Object.keys(props.gallery)[0] + 1
-    // console.log("CONTRACT", ContractObject)
-    // console.log("STATE", ContractState)
     const uri = getURI.toString()
     return (
         <div className="mint-wrap">

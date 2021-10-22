@@ -9,30 +9,32 @@ import { checkWallet,
       robotHead,
       robotEyes,
       robotBrows,
-      robotMouth} from './Functions'
+      robotMouth,
+    getWallet,
+  robotNose } from './Functions'
 import Owned from "./components/Owned";
 import Mint from "./components/Mint";
 import Buy from "./components/Buy";
-import { buildQueries } from "@testing-library/dom";
+
 //import BuildFly from "./components/BuildFly";
 
 function App() {
   const [getOwner, setOwner] = useState(false)
   const [getURI, setURI] = useState(false)
   const [getAddr, setAddr] = useState(false)
-  const [getMD, setMD] = useState(false)
-  const [getDNA, setDNA] = useState(false)
+
   var ContractAddress;
-  
   var ContractObject;
   var ContractState;
 
   async function onloadInit(){
+    
     try{
       var check1 = checkWallet();
       var check2 = await connectWallet();
       if(check1 && check2){ 
-        var ContractAddress = "0x062534cabe31a7a2ebc41f05ba7a253e87d8c840";
+        // var ContractAddress = "0x062534cabe31a7a2ebc41f05ba7a253e87d8c840";
+        var ContractAddress = "0x6441a1f623eac315d2f37862232850c337c2a49f";
         setAddr(ContractAddress)
         ContractObject = loadContract(ContractAddress);
 
@@ -61,12 +63,15 @@ function App() {
         // BROWS //
         ctx.drawImage(nftBrows, (500 - 500)/2, 0)
         // MOUTH //
-        ctx.drawImage(nftMouth, (500 - 500)/2, 0)
+        ctx.drawImage(nftMouth, (500 - 500)/2, 30)
+        // MOUTH //
+        ctx.drawImage(nftNose, (500 - 500)/2, 0)
       } 
       
       /////////  HEAD    //////////
       const nftHead = new Image();
-      var rando = Math.floor(Math.random()*4)+1
+      var rando = Math.floor(Math.random()*10000)+1
+      console.log(rando)
       nftHead.src = robotHead(rando)
       nftHead.onload = function(){
         buildrobot();
@@ -89,11 +94,20 @@ function App() {
         buildrobot();
       }
 
+      
       /////////  MOUTH    //////////
       const nftMouth = new Image();
       var rando = Math.floor(Math.random()*2)+1
       nftMouth.src = robotMouth(rando)
       nftMouth.onload = function(){
+        buildrobot();
+      }
+
+      //NOSE
+      const nftNose = new Image();
+      var rando = Math.floor(Math.random()*2)+1
+      nftNose.src = robotNose(rando)
+      nftNose.onload = function(){
         buildrobot();
       }
 
@@ -114,8 +128,6 @@ function App() {
               ContractAddress = contractAddress;
               const tokenOwners = ContractState.token_owners;
               const tokenURI = ContractState.token_uris;
-              const tokenMds = ContractState.token_mds;
-              setMD(tokenMds)
               loadGallery(false);
               setOwner(tokenOwners)
               setURI(tokenURI)
@@ -130,11 +142,8 @@ function App() {
     
 
   }
-  
-
-
   window.onload = onloadInit
-
+  const currWallet = getWallet()
   const Contract = JSON.parse(localStorage.getItem("ContractObject"))
   const State = JSON.parse(localStorage.getItem("ContractState"))
   return (
@@ -144,9 +153,8 @@ function App() {
         <section id="mint" className="hide">
           <Mint gallery={getOwner} contract={Contract} state={State} address={getAddr} />
         </section>
-        {/* <BuildFly /> */}
         <section> 
-          <Buy gallery={getOwner} contract={Contract} state={State} address={getAddr} metadata={getMD}/>
+          <Buy gallery={getOwner} contract={Contract} state={State} address={getAddr} currWallet={currWallet}/>
         </section>
         <section className="gallery">
             <Owned gallery={getOwner} uris={getURI} address={getAddr}/>
