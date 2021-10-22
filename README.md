@@ -10,4 +10,6 @@ This application can also be used as a NFT wallet for different contracts.
 
 See /src for getting started with create-react-app
 
+UNCONNECTED SCREEN
+-----
 ![name](/shot1.png)
