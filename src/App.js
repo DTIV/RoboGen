@@ -11,12 +11,11 @@ import { checkWallet,
       robotBrows,
       robotMouth,
     getWallet,
-  robotNose } from './Functions'
+  robotNose,
+robotTop } from './Functions'
 import Owned from "./components/Owned";
 import Mint from "./components/Mint";
 import Buy from "./components/Buy";
-
-//import BuildFly from "./components/BuildFly";
 
 function App() {
   const [getOwner, setOwner] = useState(false)
@@ -33,11 +32,9 @@ function App() {
       var check1 = checkWallet();
       var check2 = await connectWallet();
       if(check1 && check2){ 
-        // var ContractAddress = "0x062534cabe31a7a2ebc41f05ba7a253e87d8c840";
         var ContractAddress = "0x6441a1f623eac315d2f37862232850c337c2a49f";
         setAddr(ContractAddress)
         ContractObject = loadContract(ContractAddress);
-
         localStorage.setItem("ContractObject", JSON.stringify(ContractObject))
         if(ContractObject){
           ContractObject.getState().then(function(stateData){
@@ -57,6 +54,8 @@ function App() {
         var canvas = document.getElementById('canvas')
         if(canvas){
           var ctx = canvas.getContext('2d');
+          // ANTENA //
+          ctx.drawImage(nftTop, (500 - 500)/2, 0)
           // HEAD //
           ctx.drawImage(nftHead, (500 - 500)/2, 0)
           // EYES //
@@ -68,7 +67,14 @@ function App() {
           // MOUTH //
           ctx.drawImage(nftNose, (500 - 500)/2, 0)
         } 
-      } 
+      }
+      /////////  ANTENA    //////////
+      const nftTop = new Image();
+      // var rando = Math.floor(Math.random()*10000)+1
+      nftTop.src = robotTop(1)
+      nftTop.onload = function(){
+        buildrobot();
+      }
       /////////  HEAD    //////////
       const nftHead = new Image();
       var rando = Math.floor(Math.random()*10000)+1
@@ -132,9 +138,8 @@ function App() {
       }
       return ContractObject
     }
-    
-
   }
+  
   window.onload = onloadInit
   const currWallet = getWallet()
   const Contract = JSON.parse(localStorage.getItem("ContractObject"))
